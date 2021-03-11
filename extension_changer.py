@@ -1,5 +1,5 @@
-import tkinter
 import os
+import tkinter
 from tkinter import filedialog, StringVar
 
 
@@ -43,18 +43,16 @@ def get_folder():
 
 def get_extension():
     change_to = to_extension.get()
-    print(change_to)
     #change_from = from_extension.get()
     change_from = "py"
 
     files=os.listdir(folder_path)
+
     for file in files:
         if (".%s"%change_from) in file:
-            print("hi")
-            '''newfile=file.replace('.py','.png')
-            os.rename(file,newfile)'''
-            '''newfile=file.replace((".%s"%change_from),".%s"%change_to)
-            os.rename(file,newfile)'''
+            #newfile=file.replace('.py','.png')
+            newfile=file.replace((".%s"%change_from),".%s"%change_to)
+            os.rename((folder_path+'/'+file),(folder_path+'/'+newfile))
 
 
 #defining frames
