@@ -3,24 +3,6 @@ import tkinter
 from tkinter import filedialog, StringVar
 
 
-'''
-import os
-files=os.listdir(os.curdir)
-for file in files:
-	if '.c' in files:
-		newfile=file.replace('.c','.png')
-		os.rename(file,newfile)
-
-
-file_name = filedialog.asksaveasfilename(initialdir='./', title='Save Colors',filetypes=(('Text', '.txt'),('All Files', '*.*')))
-
-    #open the new file as write
-    with open(file_name, "w") as f:
-        f.write("Color Theme Maker Output\n")
-        for saved_entry in stored_colors.values():
-            f.write(saved_entry[0] + "\n" + saved_entry[1] + "\n\n")
-'''
-
 #Define fonts and colors
 my_font = ('Times New Roman', 12)
 root_color = 'black'
@@ -35,11 +17,13 @@ root.geometry("500x300")
 root.resizable(0,0)
 root.config(bg=root_color)
 
+
 #defining functions
 def get_folder():
     global folder_path
     folder_path = filedialog.askdirectory(initialdir='./', title="Select Folder")
     print(folder_path)
+
 
 def get_extension():
     change_to = to_extension.get()
@@ -59,16 +43,54 @@ def get_extension():
 from_frame = tkinter.Frame(root)
 to_frame = tkinter.Frame(root)
 button_frame = tkinter.Frame(root)
-
 from_frame.pack()
-to_frame.pack()
+to_frame.pack(pady=20)
 button_frame.pack()
 
 #defining widgets for frames
 folder_label = tkinter.Label(from_frame)
-browse_button = tkinter.Button(from_frame, text="Browse", command=get_folder)
-folder_label.grid(row=0,column=0)
-browse_button.grid(row=0,column=1)
+browse_button = tkinter.Button(from_frame, text="Browse",bg="green", command=get_folder)
+folder_label.grid(row=3,column=0)
+browse_button.grid(row=3,column=1)
+from_extension = StringVar()
+from_extension.set("c")
+mp3_radio = tkinter.Radiobutton(from_frame, text=".mp3", variable=from_extension, value="mp3")
+mp4_radio = tkinter.Radiobutton(from_frame, text=".mp4", variable=from_extension, value="mp4")
+c_radio = tkinter.Radiobutton(from_frame, text=".c", variable=from_extension, value="c")
+cpp_radio = tkinter.Radiobutton(from_frame, text=".cpp", variable=from_extension, value="cpp")
+py_radio = tkinter.Radiobutton(from_frame, text=".py", variable=from_extension, value="py")
+js_radio = tkinter.Radiobutton(from_frame, text=".js", variable=from_extension, value="js")
+jpeg_radio = tkinter.Radiobutton(from_frame, text=".jpeg", variable=from_extension, value="jpeg")
+jpg_radio = tkinter.Radiobutton(from_frame, text=".jpg", variable=from_extension, value="jpg")
+pdf_radio = tkinter.Radiobutton(from_frame, text=".pdf", variable=from_extension, value="pdf")
+log_radio = tkinter.Radiobutton(from_frame, text=".log", variable=from_extension, value="log")
+txt_radio = tkinter.Radiobutton(from_frame, text=".txt", variable=from_extension, value="txt")
+md_radio = tkinter.Radiobutton(from_frame, text=".md", variable=from_extension, value="md")
+json_radio = tkinter.Radiobutton(from_frame, text=".json", variable=from_extension, value="json")
+java_radio = tkinter.Radiobutton(from_frame, text=".java", variable=from_extension, value="java")
+ico_radio = tkinter.Radiobutton(from_frame, text=".ico", variable=from_extension, value="ico")
+dll_radio = tkinter.Radiobutton(from_frame, text=".dll", variable=from_extension, value="dll")
+custom_radio = tkinter.Radiobutton(from_frame, text="custom", variable=from_extension, value="custom")
+
+mp3_radio.grid(row=0,column=0)
+mp4_radio.grid(row=0,column=1)
+c_radio.grid(row=0,column=2)
+cpp_radio.grid(row=0,column=3)
+py_radio.grid(row=0,column=4)
+js_radio.grid(row=0,column=5)
+jpeg_radio.grid(row=1,column=0)
+jpg_radio.grid(row=1,column=1)
+pdf_radio.grid(row=1,column=2)
+log_radio.grid(row=1,column=3)
+txt_radio.grid(row=1,column=4)
+md_radio.grid(row=1,column=5)
+json_radio.grid(row=2,column=0)
+java_radio.grid(row=2,column=1)
+ico_radio.grid(row=2,column=2)
+dll_radio.grid(row=2,column=3)
+custom_radio.grid(row=2,column=4,columnspan=2)
+
+
 
 to_extension = StringVar()
 to_extension.set("mp3")
