@@ -1,3 +1,10 @@
+'''
+    Program: Extension changer
+    Author: akr
+    GitHub: a-k-r-a-k-r
+
+'''
+
 import os
 import tkinter
 from tkinter import filedialog, StringVar
